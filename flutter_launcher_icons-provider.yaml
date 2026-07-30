@@ -1,0 +1,12 @@
+flutter_launcher_icons:
+  flavor: provider
+  android: true
+  adaptive_icon_background: "assets/launcher_icon/app_launcher_icon_provider.png"
+  adaptive_icon_foreground: "assets/launcher_icon/app_launcher_icon_provider.png"
+  ios: true
+  image_path: "assets/launcher_icon/app_launcher_icon_provider.png"
+  remove_alpha_ios: true
+
+
+# Run Command :
+#  dart run flutter_launcher_icons -f provider

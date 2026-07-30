@@ -1,0 +1,107 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Client",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/_main_client.dart",
+      "args": [
+        "--flavor",
+        "client",
+        "--target",
+        "lib/_main_client.dart"
+      ]
+    },
+    {
+      "name": "Client (debug, verbose)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/_main_client.dart",
+      "args": [
+        "--flavor",
+        "client",
+        "--target",
+        "lib/_main_client.dart",
+        "-v"
+      ]
+    },
+    {
+      "name": "Client (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/_main_client.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "client",
+        "--target",
+        "lib/_main_client.dart"
+      ]
+    },
+    {
+      "name": "Client (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/_main_client.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "client",
+        "--target",
+        "lib/_main_client.dart"
+      ]
+    },
+    {
+      "name": "Provider",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/_main_provider.dart",
+      "args": [
+        "--flavor",
+        "provider",
+        "--target",
+        "lib/_main_provider.dart"
+      ]
+    },
+    {
+      "name": "Provider (debug, verbose)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/_main_provider.dart",
+      "args": [
+        "--flavor",
+        "provider",
+        "--target",
+        "lib/_main_provider.dart",
+        "-v"
+      ]
+    },
+    {
+      "name": "Provider (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/_main_provider.dart",
+      "flutterMode": "profile",
+      "args": [
+        "--flavor",
+        "provider",
+        "--target",
+        "lib/_main_provider.dart"
+      ]
+    },
+    {
+      "name": "Provider (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/_main_provider.dart",
+      "flutterMode": "release",
+      "args": [
+        "--flavor",
+        "provider",
+        "--target",
+        "lib/_main_provider.dart"
+      ]
+    },
+  ]
+}

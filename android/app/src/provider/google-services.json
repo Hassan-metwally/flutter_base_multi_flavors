@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "449733767957",
+    "project_id": "azhamani-d5ed8",
+    "storage_bucket": "azhamani-d5ed8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449733767957:android:7bc351a1b9ffcf8dfcef1c",
+        "android_client_info": {
+          "package_name": "com.moltaqa.azhimny.client"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEKFEaSB0dufw2sycFXCaGI9Z_hL94TFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449733767957:android:d3d7933cd4962f97fcef1c",
+        "android_client_info": {
+          "package_name": "com.moltaqa.azhimny.provider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEKFEaSB0dufw2sycFXCaGI9Z_hL94TFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
