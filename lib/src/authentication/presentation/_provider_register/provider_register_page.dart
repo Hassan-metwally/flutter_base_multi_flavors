@@ -84,7 +84,7 @@ class _ProviderRegisterPageState extends State<ProviderRegisterPage> {
   void _onRegisterSuccess() {
     OtpPage.show(
       context,
-      arguments: OtpScreenArguments(phone: phoneController.text, caseEnum: OtpScreenCaseEnum.register),
+      arguments: OtpScreenArguments(countryCode: "+966", phone: phoneController.text, verifyCase: OtpScreenCaseEnum.register),
     );
   }
 

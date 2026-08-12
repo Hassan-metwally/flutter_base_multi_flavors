@@ -2,19 +2,17 @@ part of core;
 
 class ApiConstants {
   const ApiConstants._();
+  static const String apiBaseUrl = "https://api-zahab.dev-moltaqa.cloud";
+  // static const String apiBaseUrl = "https://api-zahab-moltaqa.cloud";
 
-  // static const String apiBaseUrl = "https://backend.azahmni.moltaqadev.com";
-  static const String apiBaseUrl = "https://backend.azhmny.com/";
-
-  static String providerApi(String url) => "/store-api/v1/$url";
-  static String representativeApi(String url) => "/rep-api/v1/$url";
-  static String userApi(String url) => "/client-api/v1/$url";
-  static String sharedApi(String url) => "/shared-api/v1/$url";
+  static String providerApi(String url) => "/api/v1/client/$url";
+  static String clientApi(String url) => "/api/v1/client/$url";
+  static String sharedApi(String url) => "/api/v1/client/$url";
 
   static String flavorApi(String url) {
     switch (EnvironmentsConfig.appEnvironment) {
       case AppEnvironmentEnum.client:
-        return userApi(url);
+        return clientApi(url);
       case AppEnvironmentEnum.provider:
         return providerApi(url);
     }

@@ -15,7 +15,7 @@ class UserRegisterUseCase extends IUseCase<void, UserRegisterParams> {
 
   @override
   Future<Either<Failure, void>> call(UserRegisterParams params) async {
-    return await _repository.userRegister(params);
+    return await _repository.clientRegister(params);
   }
 }
 

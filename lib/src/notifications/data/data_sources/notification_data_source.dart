@@ -6,10 +6,10 @@ import '../../domain/use_cases/get_notifications_use_case.dart';
 import '../../domain/use_cases/read_notification_usecase.dart';
 import '../models/api_notification_model.dart';
 
-String get _getNotifications => ApiConstants.sharedApi('notifications');
-String get _markAllNotificationAsRead => ApiConstants.sharedApi('notifications/mark-as-read');
-String get _getUnreadNotificationsCount => ApiConstants.sharedApi('notifications/count');
-String get _readNotification => ApiConstants.sharedApi('/notifications/:notification/mark-as-read');
+String get _getNotifications => ApiConstants.flavorApi('notifications');
+String get _markAllNotificationAsRead => ApiConstants.flavorApi('notifications/mark-as-read');
+String get _getUnreadNotificationsCount => ApiConstants.flavorApi('notifications/unread-count');
+String get _readNotification => ApiConstants.flavorApi('/notifications/:notification/mark-as-read');
 
 abstract class NotificationDataSource {
   Future<ApiPaginatedData<ApiNotificationModel>> getNotifications(GetNotificationsParams params);
@@ -27,7 +27,7 @@ class NotificationDataSourceImp implements NotificationDataSource {
     try {
       final response = await _dioHelper.get(url: _getNotifications, queryParameters: params.toJson());
 
-      return ApiPaginatedData.fromJson(response, getData: (data) => data.map((e) => ApiNotificationModel.fromJson(e)).toList());
+      return ApiPaginatedData.fromJson(response['data'], getData: (data) => data.map((e) => ApiNotificationModel.fromJson(e)).toList());
     } catch (e) {
       rethrow;
     }

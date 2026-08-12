@@ -35,12 +35,25 @@ class _LoggedUserCard extends StatelessWidget {
         child: Row(
           spacing: 10,
           children: [
-            AppImage.circle(
-              path: user.avatar,
-              dimension: 56,
-              border: Border.all(color: AppColors.primary50),
-              placholderWidget: AppSvgIcon(path: ""),
-            ),
+             () {
+            if (user.avatar.isNotEmpty) {
+              return AppImage.circle(
+                path: user.avatar,
+                dimension: 54,
+                border: Border.all(color: AppColors.primary50),
+                placholderWidget: AppSvgIcon(path: AppIcons.userOutline, size: 24),
+              );
+            } else {
+              return Container(
+                padding: const EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: AppColors.primary50),
+                ),
+                child: AppSvgIcon(path: AppIcons.userOutline, size: 35),
+              );
+            }
+          }(),
             Expanded(
               child: Column(
                 spacing: 4,
@@ -48,7 +61,7 @@ class _LoggedUserCard extends StatelessWidget {
                 children: [
                   Text(user.name, style: TextStyles.light14, maxLines: 1, overflow: TextOverflow.ellipsis),
                   Text(
-                    user.mobile,
+                   AppLanguageCubit.of(context).isArabic ? "966${user.mobile.substring(1)}+" : "+966${user.mobile.substring(1)}",
                     style: TextStyles.regular12.copyWith(color: AppColors.black800),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

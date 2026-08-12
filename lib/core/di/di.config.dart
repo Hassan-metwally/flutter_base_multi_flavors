@@ -118,6 +118,8 @@ import '../../src/chats_inbox/domain/repositories/chats_inbox_repository.dart'
 import '../../src/chats_inbox/domain/usecases/get_chats_inbox_usecase.dart'
     as _i388;
 import '../../src/chats_inbox/presentation/chats_inbox_cubit.dart' as _i659;
+import '../../src/common/data/datasources/common_datasource.dart' as _i1065;
+import '../../src/common/data/datasources/menu_common_datasource.dart' as _i758;
 import '../../src/common/data/repository/common_repository_imp.dart' as _i867;
 import '../../src/common/data/repository/menu_common_repository_imp.dart'
     as _i294;
@@ -247,12 +249,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i984.ThemeRepository>(() => _i715.ThemeRepositoryImp());
     gh.factory<_i351.DioHelper>(() => _i351.DioHelper(dio: gh<_i361.Dio>()));
-    gh.factory<_i646.MenuCommonRepository>(
-      () => _i294.MenuCommonRepositoryImp(
-        gh<_i351.DioHelper>(),
-        gh<_i351.SecureStorageRepository>(),
-      ),
-    );
     gh.factory<_i1016.ProviderMoreRepository>(
       () => _i943.ProviderMoreRepositoryImp(
         gh<_i351.DioHelper>(),
@@ -291,14 +287,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i995.RatingDatasource>(
       () => _i995.RatingDatasourceImpl(gh<_i351.DioHelper>()),
     );
-    gh.factory<_i92.CommonRepository>(
-      () => _i867.CommonRepositoryImp(gh<_i351.DioHelper>()),
-    );
     gh.factory<_i325.AddressRepository>(
       () => _i1066.AddressRepositoryImpl(gh<_i351.DioHelper>()),
     );
     gh.factory<_i529.NotificationDataSource>(
       () => _i529.NotificationDataSourceImp(gh<_i351.DioHelper>()),
+    );
+    gh.factory<_i1065.CommonDatasource>(
+      () => _i1065.CommonDatasourceImpl(gh<_i351.DioHelper>()),
     );
     gh.factory<_i401.MapsDataSource>(
       () => _i401.MapsDataSourceImpl(gh<_i351.DioHelper>()),
@@ -336,20 +332,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i559.ChatDataSource>(
       () => _i559.ChatDataSourceImp(gh<_i351.DioHelper>()),
     );
-    gh.factory<_i268.GetContactUsDataUseCase>(
-      () => _i268.GetContactUsDataUseCase(gh<_i646.MenuCommonRepository>()),
-    );
-    gh.factory<_i573.GetStaticDataUseCase>(
-      () => _i573.GetStaticDataUseCase(gh<_i646.MenuCommonRepository>()),
-    );
-    gh.factory<_i1015.ToggleEnableNotificationUseCase>(
-      () => _i1015.ToggleEnableNotificationUseCase(
-        gh<_i646.MenuCommonRepository>(),
-      ),
-    );
-    gh.factory<_i45.SendContactUsMessageUseCase>(
-      () => _i45.SendContactUsMessageUseCase(gh<_i646.MenuCommonRepository>()),
-    );
     gh.factory<_i303.CartRepository>(
       () => _i107.CartRepositoryImpl(gh<_i526.CartDatasource>()),
     );
@@ -378,18 +360,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i740.AdsRepository>(
       () => _i331.AdsRepositoryImpl(gh<_i268.AdsDatasource>()),
-    );
-    gh.factory<_i459.GetServicesUseCase>(
-      () => _i459.GetServicesUseCase(gh<_i92.CommonRepository>()),
-    );
-    gh.factory<_i1006.ChangeLanguageUseCase>(
-      () => _i1006.ChangeLanguageUseCase(gh<_i92.CommonRepository>()),
-    );
-    gh.factory<_i725.GetBanksUseCase>(
-      () => _i725.GetBanksUseCase(gh<_i92.CommonRepository>()),
-    );
-    gh.factory<_i212.GetCitiesUseCase>(
-      () => _i212.GetCitiesUseCase(gh<_i92.CommonRepository>()),
     );
     gh.factory<_i351.ClearLanguageCacheUseCase>(
       () =>
@@ -444,8 +414,14 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i1016.ProviderMoreRepository>(),
       ),
     );
+    gh.factory<_i758.MenuCommonDatasource>(
+      () => _i758.MenuCommonDatasourceImpl(gh<_i351.DioHelper>()),
+    );
     gh.factory<_i46.WalletRepository>(
       () => _i514.WalletRepositoryImp(gh<_i351.DioHelper>()),
+    );
+    gh.factory<_i92.CommonRepository>(
+      () => _i867.CommonRepositoryImp(gh<_i1065.CommonDatasource>()),
     );
     gh.factory<_i315.UpdateCartDeliveryFeesUsecase>(
       () => _i315.UpdateCartDeliveryFeesUsecase(gh<_i303.CartRepository>()),
@@ -502,6 +478,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i844.GetStatisticsUsecase>(
       () => _i844.GetStatisticsUsecase(gh<_i581.StatisticsRepository>()),
     );
+    gh.factory<_i646.MenuCommonRepository>(
+      () => _i294.MenuCommonRepositoryImp(
+        gh<_i758.MenuCommonDatasource>(),
+        gh<_i351.SecureStorageRepository>(),
+      ),
+    );
     gh.factory<_i366.MarkAllNotificationsAsReadUseCase>(
       () => _i366.MarkAllNotificationsAsReadUseCase(
         gh<_i209.NotificationRepository>(),
@@ -517,6 +499,20 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i630.GetUnreadedNotificationsCountUsecase(
         gh<_i209.NotificationRepository>(),
       ),
+    );
+    gh.factory<_i268.GetContactUsDataUseCase>(
+      () => _i268.GetContactUsDataUseCase(gh<_i646.MenuCommonRepository>()),
+    );
+    gh.factory<_i573.GetStaticDataUseCase>(
+      () => _i573.GetStaticDataUseCase(gh<_i646.MenuCommonRepository>()),
+    );
+    gh.factory<_i1015.ToggleEnableNotificationUseCase>(
+      () => _i1015.ToggleEnableNotificationUseCase(
+        gh<_i646.MenuCommonRepository>(),
+      ),
+    );
+    gh.factory<_i45.SendContactUsMessageUseCase>(
+      () => _i45.SendContactUsMessageUseCase(gh<_i646.MenuCommonRepository>()),
     );
     gh.factory<_i824.ChatRepository>(
       () => _i394.ChatRepositoryImp(
@@ -554,6 +550,18 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i532.DeleteCartItemCubit>(
       () => _i532.DeleteCartItemCubit(gh<_i210.DeleteCartItemUsecase>()),
+    );
+    gh.factory<_i459.GetServicesUseCase>(
+      () => _i459.GetServicesUseCase(gh<_i92.CommonRepository>()),
+    );
+    gh.factory<_i1006.ChangeLanguageUseCase>(
+      () => _i1006.ChangeLanguageUseCase(gh<_i92.CommonRepository>()),
+    );
+    gh.factory<_i725.GetBanksUseCase>(
+      () => _i725.GetBanksUseCase(gh<_i92.CommonRepository>()),
+    );
+    gh.factory<_i212.GetCitiesUseCase>(
+      () => _i212.GetCitiesUseCase(gh<_i92.CommonRepository>()),
     );
     gh.factory<_i291.ClientPersonalProfileCubit>(
       () => _i291.ClientPersonalProfileCubit(

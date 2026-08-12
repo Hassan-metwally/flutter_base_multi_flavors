@@ -30,7 +30,7 @@ class _ClientLoginPageState extends State<ClientLoginPage> {
     final phoneNumber = _phoneController.text.trim();
     if (phoneNumber.isEmpty) return;
     if (isValidForm) {
-      final params = LoginParams(phone: _phoneController.text.trim());
+      final params = LoginParams(countryCode: "+966", phone: _phoneController.text.trim());
       context.read<LoginCubit>().login(params);
     }
   }
@@ -42,7 +42,7 @@ class _ClientLoginPageState extends State<ClientLoginPage> {
   void _onLoginSuccess({required UserEntity user}) {
     OtpPage.show(
       context,
-      arguments: OtpScreenArguments(phone: _phoneController.text, caseEnum: OtpScreenCaseEnum.login),
+      arguments: OtpScreenArguments(countryCode: "+966", phone: _phoneController.text, verifyCase: OtpScreenCaseEnum.login),
     );
   }
 
