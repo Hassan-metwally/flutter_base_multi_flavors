@@ -61,12 +61,7 @@ class _ChangeLanguageBottomSheetState extends State<ChangeLanguageBottomSheet> {
           title: "اللغة العربية",
         ),
         Divider(color: AppColors.black50, height: 7),
-        _Tile(
-          isSeleted: currentLang == AppLanguageEnum.en,
-          icon: "",
-          onTap: () => _onLanguageChange(AppLanguageEnum.en),
-          title: "English",
-        ),
+        _Tile(isSeleted: currentLang == AppLanguageEnum.en, icon: "", onTap: () => _onLanguageChange(AppLanguageEnum.en), title: "English"),
         const SizedBox(height: 16),
       ],
     );

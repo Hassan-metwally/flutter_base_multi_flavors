@@ -47,7 +47,10 @@ class ChatDataSourceImp implements ChatDataSource {
           ..sendTimeout = const Duration(minutes: 7)
           ..receiveTimeout = const Duration(minutes: 7),
       );
-      final Map<String, dynamic> response = await newDioObj.post(url: ApiConstants.sharedApi(params.getRequetUrl), body: await params.toMap);
+      final Map<String, dynamic> response = await newDioObj.post(
+        url: ApiConstants.sharedApi(params.getRequetUrl),
+        body: await params.toMap,
+      );
       return ApiChatMessageModel.fromJson(response["data"]["message"]);
     } catch (e) {
       rethrow;

@@ -61,9 +61,7 @@ class AddToCartWidget extends StatelessWidget {
                     color: AppColors.white,
                     borderRadius: BorderRadiusDirectional.only(topEnd: Radius.circular(12), bottomStart: Radius.circular(20)),
                   ),
-                  child: state.upsertCartItemsState.isLoading
-                      ? const SpinKitLoadingWidget.small()
-                      : AppSvgIcon(path: "", size: 20),
+                  child: state.upsertCartItemsState.isLoading ? const SpinKitLoadingWidget.small() : AppSvgIcon(path: "", size: 20),
                 );
               },
             ),

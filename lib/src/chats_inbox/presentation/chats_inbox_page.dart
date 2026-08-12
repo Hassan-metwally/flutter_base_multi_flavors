@@ -24,58 +24,48 @@ class _ChatsInboxPageState extends State<ChatsInboxPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => injector<ChatsLogCubit>()..getChatLogs(),
-        child: Scaffold(
-            appBar: AppBar(
-              title: Text("appLocalizer.chats"),
-              backgroundColor: AppColors.white,
-            ),
-            body: LoggedUserCheckerWidget(
-              loggedBuilder: (user) => BlocConsumer<ChatsLogCubit, ChatsLogState>(
-                listener: (context, state) {
-                  if (state.getChatsLogState.isSuccess) {
-                    context.read<ChatsLogCubit>().subscribeToChatChannel(
-                          userId: user.id.toString(),
-                        );
-                  }
-                },
+      create: (context) => injector<ChatsLogCubit>()..getChatLogs(),
+      child: Scaffold(
+        appBar: AppBar(title: Text("appLocalizer.chats"), backgroundColor: AppColors.white),
+        body: LoggedUserCheckerWidget(
+          loggedBuilder: (user) => BlocConsumer<ChatsLogCubit, ChatsLogState>(
+            listener: (context, state) {
+              if (state.getChatsLogState.isSuccess) {
+                context.read<ChatsLogCubit>().subscribeToChatChannel(userId: user.id.toString());
+              }
+            },
+            builder: (context, state) {
+              return BlocBuilder<ChatsLogCubit, ChatsLogState>(
                 builder: (context, state) {
-                  return BlocBuilder<ChatsLogCubit, ChatsLogState>(
-                    builder: (context, state) {
-                      if (state.getChatsLogState.isLoading) {
-                        return const Center(child: SpinKitLoadingWidget());
-                      } else if (state.getChatsLogState.isFailure) {
-                        return AppFailWidget(
-                          onRetry: () => context.read<ChatsLogCubit>().getChatLogs(),
-                        );
-                      } else if (state.getChatsLogState.isSuccess) {
-                        final chats = state.getChatsLogState.data!;
-                        if (chats.isEmpty) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 20),
-                            child: AppEmptyWidget(
-                              heightPercentage: 0.6,
-                            ),
-                          );
-                        } else {
-                          return ListView.separated(
-                            separatorBuilder: (context, index) => const SizedBox(height: 8),
-                            padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 20),
-                            itemCount: chats.length,
-                            itemBuilder: (context, index) {
-                              return ChatesInboxCard(
-                                chat: chats[index],
-                                index: index,
-                              );
-                            },
-                          );
-                        }
-                      }
-                      return const SizedBox.shrink();
-                    },
-                  );
+                  if (state.getChatsLogState.isLoading) {
+                    return const Center(child: SpinKitLoadingWidget());
+                  } else if (state.getChatsLogState.isFailure) {
+                    return AppFailWidget(onRetry: () => context.read<ChatsLogCubit>().getChatLogs());
+                  } else if (state.getChatsLogState.isSuccess) {
+                    final chats = state.getChatsLogState.data!;
+                    if (chats.isEmpty) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 20),
+                        child: AppEmptyWidget(heightPercentage: 0.6),
+                      );
+                    } else {
+                      return ListView.separated(
+                        separatorBuilder: (context, index) => const SizedBox(height: 8),
+                        padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(top: 20),
+                        itemCount: chats.length,
+                        itemBuilder: (context, index) {
+                          return ChatesInboxCard(chat: chats[index], index: index);
+                        },
+                      );
+                    }
+                  }
+                  return const SizedBox.shrink();
                 },
-              ),
-            )));
+              );
+            },
+          ),
+        ),
+      ),
+    );
   }
 }

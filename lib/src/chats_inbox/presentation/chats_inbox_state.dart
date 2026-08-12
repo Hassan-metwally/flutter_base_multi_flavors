@@ -5,24 +5,11 @@ class ChatsLogState extends Equatable {
   final int currentPage;
   final int lastPage;
 
-  const ChatsLogState({
-    this.getChatsLogState = const Async.initial(),
-    this.currentPage = 1,
-    this.lastPage = 1,
-  });
+  const ChatsLogState({this.getChatsLogState = const Async.initial(), this.currentPage = 1, this.lastPage = 1});
 
-  const ChatsLogState.initial()
-      : this(
-          getChatsLogState: const Async.initial(),
-          currentPage: 1,
-          lastPage: 1,
-        );
+  const ChatsLogState.initial() : this(getChatsLogState: const Async.initial(), currentPage: 1, lastPage: 1);
 
-  ChatsLogState copyWith({
-    Async<List<ChatsInboxEntity>>? getChatsLogState,
-    int? currentPage,
-    int? lastPage,
-  }) {
+  ChatsLogState copyWith({Async<List<ChatsInboxEntity>>? getChatsLogState, int? currentPage, int? lastPage}) {
     return ChatsLogState(
       getChatsLogState: getChatsLogState ?? this.getChatsLogState,
       currentPage: currentPage ?? this.currentPage,
@@ -31,9 +18,5 @@ class ChatsLogState extends Equatable {
   }
 
   @override
-  List<Object> get props => [
-        getChatsLogState,
-        currentPage,
-        lastPage,
-      ];
+  List<Object> get props => [getChatsLogState, currentPage, lastPage];
 }

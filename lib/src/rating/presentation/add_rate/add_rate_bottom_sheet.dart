@@ -12,7 +12,6 @@ import '../../../../../../material/toast/app_toast.dart';
 import '../../domain/usecases/add_rate_usecase.dart';
 import 'add_rate_cubit.dart';
 
-
 class AddRateBottomSheet extends StatefulWidget {
   final int itemId;
   const AddRateBottomSheet({super.key, required this.itemId});
@@ -108,11 +107,7 @@ class _AddRateBottomSheetState extends State<AddRateBottomSheet> {
                       isLoading: state.addRateState.isLoading,
                       onPressed: () {
                         if (!(_formKey.currentState?.validate() ?? false)) return;
-                        final params = UpsertRateParams(
-                          rateItemId: widget.itemId,
-                          rating: rate.toInt(),
-                          comment: commentController.text,
-                        );
+                        final params = UpsertRateParams(rateItemId: widget.itemId, rating: rate.toInt(), comment: commentController.text);
                         context.read<AddRateCubit>().addRate(params);
                       },
                     ),

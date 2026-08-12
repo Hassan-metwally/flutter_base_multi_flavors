@@ -15,13 +15,7 @@ class RateEntity extends Equatable {
     : id = 0,
       rate = 0,
       comment = '',
-      user = const UserEntity(
-        id: 0,
-        name: '',
-        mobile: '',
-        avatar: AttachmentEntity.empty(),
-        isVerified: null,
-      );
+      user = const UserEntity(id: 0, name: '', mobile: '', avatar: AttachmentEntity.empty(), isVerified: null);
 
   RateEntity copyWith({int? id, num? rate, String? comment, UserEntity? user}) {
     return RateEntity(id: id ?? this.id, rate: rate ?? this.rate, comment: comment ?? this.comment, user: user ?? this.user);

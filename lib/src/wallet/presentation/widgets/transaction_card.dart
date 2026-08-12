@@ -50,11 +50,7 @@ class TransactionCard extends StatelessWidget {
               textAlign: TextAlign.end,
             ),
           ),
-          AppSvgIcon(
-            path: transaction.type == TransactionTypeEnum.deposit ? "" : "",
-            size: 20,
-            color: transaction.type.color,
-          ),
+          AppSvgIcon(path: transaction.type == TransactionTypeEnum.deposit ? "" : "", size: 20, color: transaction.type.color),
         ],
       ),
     );

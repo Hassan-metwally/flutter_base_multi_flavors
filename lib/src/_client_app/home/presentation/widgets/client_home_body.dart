@@ -13,7 +13,7 @@ class _ClientHomeBodyState extends State<_ClientHomeBody> {
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(child: _Ads()),
-       
+
         SliverToBoxAdapter(child: SizedBox(height: 20)),
       ],
     );
@@ -49,4 +49,3 @@ class _Ads extends StatelessWidget {
     return const SizedBox();
   }
 }
-

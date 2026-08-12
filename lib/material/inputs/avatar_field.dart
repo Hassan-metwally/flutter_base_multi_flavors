@@ -60,7 +60,7 @@ class ProfileAvatarWidget extends StatelessWidget {
                         if (value != null && value.path.isNotEmpty) {
                           return AppImage.circle(path: value.path, fit: BoxFit.cover, dimension: double.infinity);
                         } else {
-                          return AppSvgIcon(path:"");
+                          return AppSvgIcon(path: "");
                         }
                       },
                     ),

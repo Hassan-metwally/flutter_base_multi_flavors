@@ -83,10 +83,7 @@ class _ClientMainPageState extends State<ClientMainPage> with ClientMainPageObse
         child: IndexedStack(
           index: _currentTabEnum.index,
           children: [
-            OffStage(
-              isActive: _currentTabEnum == ClientMainPageTabsEnum.home,
-              child: ClientHomePage(),
-            ),
+            OffStage(isActive: _currentTabEnum == ClientMainPageTabsEnum.home, child: ClientHomePage()),
             OffStage(
               isActive: _currentTabEnum == ClientMainPageTabsEnum.orders,
               child: const GuestCheckerWidget(replaceWithDefaultGuestWidget: true, child: SizedBox()),

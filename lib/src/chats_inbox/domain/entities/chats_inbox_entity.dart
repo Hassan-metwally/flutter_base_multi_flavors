@@ -30,16 +30,15 @@ class ChatsInboxEntity extends Equatable {
     List<ChatMessageEntity>? messages,
     MessageAuthor? user,
     int? unreadCount,
-  }) =>
-      ChatsInboxEntity(
-        id: id ?? this.id,
-        type: type ?? this.type,
-        orderId: orderId ?? this.orderId,
-        lastMessageEntity: lastMessageEntity ?? this.lastMessageEntity,
-        messages: messages ?? this.messages,
-        user: user ?? this.user,
-        unreadCount: unreadCount ?? this.unreadCount,
-      );
+  }) => ChatsInboxEntity(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    orderId: orderId ?? this.orderId,
+    lastMessageEntity: lastMessageEntity ?? this.lastMessageEntity,
+    messages: messages ?? this.messages,
+    user: user ?? this.user,
+    unreadCount: unreadCount ?? this.unreadCount,
+  );
 
   // factory ChatEntity.fromJson(Map<String, dynamic> json) => ChatEntity(
   //       id: json["id"],
@@ -55,17 +54,16 @@ class ChatsInboxEntity extends Equatable {
     final List<ChatMessageEntity> newMessagesList = List.from(messages);
     newMessagesList.add(message);
     return ChatsInboxEntity(
-        id: id, type: type, user: user, messages: newMessagesList, orderId: orderId, lastMessageEntity: message, unreadCount: unreadCount);
+      id: id,
+      type: type,
+      user: user,
+      messages: newMessagesList,
+      orderId: orderId,
+      lastMessageEntity: message,
+      unreadCount: unreadCount,
+    );
   }
 
   @override
-  List<Object?> get props => [
-        id,
-        type,
-        orderId,
-        lastMessageEntity,
-        messages,
-        user,
-        unreadCount,
-      ];
+  List<Object?> get props => [id, type, orderId, lastMessageEntity, messages, user, unreadCount];
 }

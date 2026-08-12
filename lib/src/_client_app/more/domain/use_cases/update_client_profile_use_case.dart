@@ -21,10 +21,10 @@ class UpdateClientProfileParams {
   final AttachmentEntity? image;
   final String name;
 
-  const UpdateClientProfileParams({required this.image, required this.name,});
+  const UpdateClientProfileParams({required this.image, required this.name});
 
   Map<String, dynamic> get toMap {
     final MultipartFile? file = image?.path.toMultipartFile;
-    return {if (file != null) 'avatar': file, 'name': name, };
+    return {if (file != null) 'avatar': file, 'name': name};
   }
 }

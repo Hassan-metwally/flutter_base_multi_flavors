@@ -21,22 +21,14 @@ class UpdateProviderProfileUseCase extends IUseCase<ProviderEntity, UpdateProvid
 class UpdateProviderProfileParams extends Equatable {
   final AttachmentEntity? image;
   final String name;
-  
 
-  const UpdateProviderProfileParams({
-    required this.image,
-    required this.name,
-   
-  });
+  const UpdateProviderProfileParams({required this.image, required this.name});
 
   Map<String, dynamic> get toMap {
     final MultipartFile? file = image?.path.toMultipartFile;
-    return {
-      if (file != null) 'avatar': file,
-      'name': name,
-    };
+    return {if (file != null) 'avatar': file, 'name': name};
   }
-  
+
   @override
   List<Object?> get props => [image, name];
 }

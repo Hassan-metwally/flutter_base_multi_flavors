@@ -184,9 +184,7 @@ class _ChatInputWidgetState extends State<ChatInputWidget> {
                                     BoxShadow(color: AppColors.black.withOpacityPercent(12), blurRadius: 4, offset: Offset(0, 1)),
                                   ],
                                 ),
-                                child: state.sendMessageState.isLoading
-                                    ? const SpinKitLoadingWidget.small()
-                                    : AppSvgIcon(path: ""),
+                                child: state.sendMessageState.isLoading ? const SpinKitLoadingWidget.small() : AppSvgIcon(path: ""),
                               ),
                               builder: (context, value, child) {
                                 final bool isEnable = value.text.isNotEmpty || attachments.isNotEmpty;

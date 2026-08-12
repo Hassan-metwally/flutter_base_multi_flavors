@@ -74,7 +74,7 @@ class _UserRegisterPageState extends State<UserRegisterPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    AppSvgIcon(path:""),
+                    AppSvgIcon(path: ""),
                     const SizedBox(height: 16),
                     Text(appLocalizer.register, style: TextStyles.regular20.copyWith(color: AppColors.black)),
                     const SizedBox(height: 8),

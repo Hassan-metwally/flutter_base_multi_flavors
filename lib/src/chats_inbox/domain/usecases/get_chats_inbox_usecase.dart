@@ -19,13 +19,9 @@ class GetChatsInboxUsecase extends IUseCase<PaginatedData<ChatsInboxEntity>, Get
 class GetChatLogsParams {
   final int page;
 
-  GetChatLogsParams({
-    required this.page,
-  });
+  GetChatLogsParams({required this.page});
 
   Map<String, dynamic> toJson() {
-    return {
-      'page': page,
-    };
+    return {'page': page};
   }
 }

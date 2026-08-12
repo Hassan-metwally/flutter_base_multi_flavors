@@ -27,18 +27,10 @@ class UpsertRateParams extends Equatable {
   const UpsertRateParams.initial() : rateItemId = 0, rating = 0, comment = '';
 
   UpsertRateParams copyWith({int? rateItemId, int? rating, String? comment}) {
-    return UpsertRateParams(
-      rateItemId: rateItemId ?? this.rateItemId,
-      rating: rating ?? this.rating,
-      comment: comment ?? this.comment,
-    );
+    return UpsertRateParams(rateItemId: rateItemId ?? this.rateItemId, rating: rating ?? this.rating, comment: comment ?? this.comment);
   }
 
-  Map<String, dynamic> get toMap => {
-    'rate_item_id': rateItemId,
-    'rating': rating,
-    'comment': comment,
-  };
+  Map<String, dynamic> get toMap => {'rate_item_id': rateItemId, 'rating': rating, 'comment': comment};
 
   @override
   List<Object?> get props => [rateItemId, rating, comment];

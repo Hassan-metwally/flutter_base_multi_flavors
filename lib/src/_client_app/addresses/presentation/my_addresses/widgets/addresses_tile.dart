@@ -50,7 +50,7 @@ class AddressTile extends StatelessWidget {
             ],
           ),
           Divider(height: 12, color: AppColors.black50),
-          
+
           const SizedBox(height: 12),
           Row(
             children: [

@@ -29,13 +29,16 @@ class _ClientHomeAppBarState extends State<_ClientHomeAppBar> {
                     },
                     child: Row(
                       children: [
-                        (){
+                        () {
                           if (user.avatar.isNotEmpty) {
                             return AppImage.circle(path: user.avatar, dimension: 48);
                           } else {
                             return Container(
                               padding: const EdgeInsets.all(6),
-                              decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: AppColors.primary50)),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(color: AppColors.primary50),
+                              ),
                               child: AppSvgIcon(path: AppIcons.userOutline, size: 35),
                             );
                           }

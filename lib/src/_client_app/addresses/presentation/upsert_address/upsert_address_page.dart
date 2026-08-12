@@ -98,7 +98,7 @@ class _AddAddressBodyState extends State<AddAddressBody> {
                   child: Text(appLocalizer.pleaseEnterAddressDetails, style: TextStyles.light14.copyWith(color: AppColors.black800)),
                 ),
                 const SizedBox(height: 8),
-                
+
                 const SizedBox(height: 8),
                 Row(
                   children: [
@@ -128,7 +128,6 @@ class _AddAddressBodyState extends State<AddAddressBody> {
 
                 const SizedBox(height: 8),
 
-                
                 const SizedBox(height: 20),
                 // SizedBox(height: 25),
                 BlocConsumer<UpsertAddressCubit, UpsertAddressState>(

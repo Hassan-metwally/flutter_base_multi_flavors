@@ -24,13 +24,6 @@ extension ApiRateEXT on ApiRateModel {
     id: id ?? 0,
     rate: rate ?? 0,
     comment: comment ?? '',
-    user: user?.map ??
-        const UserEntity(
-          id: 0,
-          name: '',
-          mobile: '',
-          avatar: AttachmentEntity.empty(),
-          isVerified: null,
-        ),
+    user: user?.map ?? const UserEntity(id: 0, name: '', mobile: '', avatar: AttachmentEntity.empty(), isVerified: null),
   );
 }

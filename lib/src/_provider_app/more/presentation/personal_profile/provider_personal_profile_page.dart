@@ -70,15 +70,10 @@ class __PageBodyState extends State<_PageBody> {
   late final ValidatorFieldController<AttachmentEntity?> _avatorController;
   late final TextEditingController _nameController;
 
-
   void _onSavePressed() {
     final isValidForm = formKey.currentState?.validate() ?? false;
     if (isValidForm) {
-      final params = UpdateProviderProfileParams(
-        image: _avatorController.value,
-        name: _nameController.text,
-      
-      );
+      final params = UpdateProviderProfileParams(image: _avatorController.value, name: _nameController.text);
       context.read<ProviderPersonalProfileCubit>().updateProfile(params);
     }
   }
@@ -127,7 +122,7 @@ class __PageBodyState extends State<_PageBody> {
                     ProfileAvatarWidget(controller: _avatorController),
                     const SizedBox(height: 20),
                     NameField(controller: _nameController, lable: appLocalizer.providerName, hint: appLocalizer.enterProviderName),
-                   
+
                     const SizedBox(height: 20),
                     Row(
                       spacing: 8,
@@ -156,8 +151,7 @@ class __PageBodyState extends State<_PageBody> {
                       ],
                     ),
                     const SizedBox(height: 20),
-                   
-                    
+
                     const SizedBox(height: 20),
                   ],
                 ),

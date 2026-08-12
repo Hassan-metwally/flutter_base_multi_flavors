@@ -82,11 +82,7 @@ class _UpdateCartItemQuantityWidgetState extends State<UpdateCartItemQuantityWid
                   });
                 }
               },
-              child: AppSvgIcon(
-                path: "",
-                width: widget.iconSize ?? defaultIconSize,
-                height: widget.iconSize ?? defaultIconSize,
-              ),
+              child: AppSvgIcon(path: "", width: widget.iconSize ?? defaultIconSize, height: widget.iconSize ?? defaultIconSize),
             ),
           ],
         ),

@@ -210,7 +210,7 @@ class __ContactUsBodyState extends State<_ContactUsBody> {
                       ),
                     if (widget.data.whatsapp.isNotEmpty)
                       _TileWidget(
-                        icon: "" ,
+                        icon: "",
                         hasSeperator: true,
                         children: widget.data.whatsapp.map((e) {
                           return GestureDetector(

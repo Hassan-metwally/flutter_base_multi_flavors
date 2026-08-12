@@ -26,27 +26,28 @@ class ChatsLogCubit extends Cubit<ChatsLogState> {
   Future<void> getChatLogs() async {
     emit(state.copyWith(currentPage: 1, getChatsLogState: const Async.loading()));
     final result = await getChatsInboxUsecase(GetChatLogsParams(page: state.currentPage));
-    result.fold((error) {
-      emit(state.copyWith(getChatsLogState: Async.failure(error)));
-    }, (data) {
-      emit(state.copyWith(
-        getChatsLogState: Async.success(data.items),
-        lastPage: data.pageInfo.lastPage,
-      ));
-    });
+    result.fold(
+      (error) {
+        emit(state.copyWith(getChatsLogState: Async.failure(error)));
+      },
+      (data) {
+        emit(state.copyWith(getChatsLogState: Async.success(data.items), lastPage: data.pageInfo.lastPage));
+      },
+    );
   }
 
   Future<void> getMoreChatsLog() async {
     if (state.currentPage == state.lastPage) return;
     emit(state.copyWith(currentPage: state.currentPage + 1));
     final result = await getChatsInboxUsecase(GetChatLogsParams(page: state.currentPage));
-    result.fold((error) {
-      emit(state.copyWith(getChatsLogState: Async.failure(error), currentPage: state.currentPage - 1));
-    }, (data) {
-      emit(state.copyWith(
-        getChatsLogState: Async.success([...state.getChatsLogState.data ?? [], ...data.items]),
-      ));
-    });
+    result.fold(
+      (error) {
+        emit(state.copyWith(getChatsLogState: Async.failure(error), currentPage: state.currentPage - 1));
+      },
+      (data) {
+        emit(state.copyWith(getChatsLogState: Async.success([...state.getChatsLogState.data ?? [], ...data.items])));
+      },
+    );
   }
 
   resetUnreadCount(int index) {
@@ -57,9 +58,7 @@ class ChatsLogCubit extends Cubit<ChatsLogState> {
 
   PusherChannel? pusherChannel;
 
-  void subscribeToChatChannel({
-    required String userId,
-  }) async {
+  void subscribeToChatChannel({required String userId}) async {
     try {
       // chatID = userId;
       await PusherHandler.unsubscribeFromChannel('inbox.$userId');
@@ -94,11 +93,7 @@ class ChatsLogCubit extends Cubit<ChatsLogState> {
         }
 
         chats.insert(0, newChat.map);
-        emit(
-          state.copyWith(
-            getChatsLogState: Async.success(chats),
-          ),
-        );
+        emit(state.copyWith(getChatsLogState: Async.success(chats)));
       }
     } catch (e) {
       log(e.toString());

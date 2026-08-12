@@ -17,10 +17,7 @@ class ChatsInboxDatasourceImpl extends ChatsInboxDatasource {
   Future<ApiPaginatedData<ApiChatInboxModel>> getChatsInbox(GetChatLogsParams params) async {
     try {
       final response = await dio.get(url: ApiConstants.flavorApi('chats'));
-      return ApiPaginatedData.fromJson(
-        response,
-        getData: (dataList) => dataList.map((e) => ApiChatInboxModel.fromJson(e)).toList(),
-      );
+      return ApiPaginatedData.fromJson(response, getData: (dataList) => dataList.map((e) => ApiChatInboxModel.fromJson(e)).toList());
     } catch (e) {
       rethrow;
     }

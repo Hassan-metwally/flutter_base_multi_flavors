@@ -12,8 +12,6 @@ class AuthAuthenticatedState extends AppAuthenticationState {
 
   const AuthAuthenticatedState({required this.user});
 
-  
-
   @override
   List<Object?> get props => [user];
 }
@@ -24,8 +22,6 @@ class AuthLogInPageState extends AppAuthenticationState {}
 
 class AuthLogOutState extends AppAuthenticationState {}
 
-class GuestState extends AppAuthenticationState {
-
-}
+class GuestState extends AppAuthenticationState {}
 
 class AuthUnauthenticated extends AppAuthenticationState {}
