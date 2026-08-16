@@ -9,7 +9,7 @@ class ApiConstants {
   static String clientApi(String url) => "/api/v1/client/$url";
   static String sharedApi(String url) => "/api/v1/shared/$url";
 
-  static String flavorApi(String url) {
+  static String addToApiUrlPath(String url) {
     switch (EnvironmentsConfig.appEnvironment) {
       case AppEnvironmentEnum.client:
         return clientApi(url);

@@ -24,7 +24,7 @@ class MenuCommonDatasourceImpl extends MenuCommonDatasource {
   @override
   Future<String> getStaticPageData(StaticPageTypeEnum type) async {
     try {
-      final result = await _dioHelper.get(url: ApiConstants.flavorApi(type.key));
+      final result = await _dioHelper.get(url: ApiConstants.addToApiUrlPath(type.key));
       return result['data']['value'] ?? '';
     } catch (_) {
       rethrow;
@@ -34,7 +34,7 @@ class MenuCommonDatasourceImpl extends MenuCommonDatasource {
   @override
   Future<Map<String, dynamic>> getContactUsData() async {
     try {
-      final result = await _dioHelper.get(url: ApiConstants.flavorApi('contact'));
+      final result = await _dioHelper.get(url: ApiConstants.addToApiUrlPath('contact'));
       return result['data'];
     } catch (_) {
       rethrow;
@@ -44,7 +44,7 @@ class MenuCommonDatasourceImpl extends MenuCommonDatasource {
   @override
   Future<void> sendContactUsMessage(SendContactUsMessageParams params) async {
     try {
-      await _dioHelper.post(url: ApiConstants.flavorApi('contact-us'), body: params.toMap);
+      await _dioHelper.post(url: ApiConstants.addToApiUrlPath('contact-us'), body: params.toMap);
     } catch (_) {
       rethrow;
     }

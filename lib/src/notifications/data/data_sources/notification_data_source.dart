@@ -6,10 +6,10 @@ import '../../domain/use_cases/get_notifications_use_case.dart';
 import '../../domain/use_cases/read_notification_usecase.dart';
 import '../models/api_notification_model.dart';
 
-String get _getNotifications => ApiConstants.flavorApi('notifications');
-String get _markAllNotificationAsRead => ApiConstants.flavorApi('notifications/mark-as-read');
-String get _getUnreadNotificationsCount => ApiConstants.flavorApi('notifications/unread-count');
-String get _readNotification => ApiConstants.flavorApi('/notifications/:notification/mark-as-read');
+String get _getNotifications => ApiConstants.addToApiUrlPath('notifications');
+String get _markAllNotificationAsRead => ApiConstants.addToApiUrlPath('notifications/mark-as-read');
+String get _getUnreadNotificationsCount => ApiConstants.addToApiUrlPath('notifications/unread-count');
+String get _readNotification => ApiConstants.addToApiUrlPath('/notifications/:notification/mark-as-read');
 
 abstract class NotificationDataSource {
   Future<ApiPaginatedData<ApiNotificationModel>> getNotifications(GetNotificationsParams params);

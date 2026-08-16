@@ -60,7 +60,7 @@ class ChatDataSourceImp implements ChatDataSource {
   @override
   Future<IChatDetailsEntity> getChatInformation(IChatPageInput params) async {
     try {
-      final Map<String, dynamic> response = await _dioHelper.get(url: ApiConstants.flavorApi(params.getChatDetailsApiRequestPath));
+      final Map<String, dynamic> response = await _dioHelper.get(url: ApiConstants.addToApiUrlPath(params.getChatDetailsApiRequestPath));
       return IChatDetailsEntity.fromJson(response["data"]['chat']);
     } catch (e) {
       rethrow;
