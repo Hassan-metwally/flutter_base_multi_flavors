@@ -18,8 +18,8 @@ class ProviderMoreRepositoryImp implements ProviderMoreRepository {
   @override
   DomainServiceType<ProviderEntity> getUserData() async {
     return await failureCollect<ProviderEntity>(() async {
-      final result = await _apiHelper.get(url: ApiConstants.addToApiUrlPath("auth/profile"));
-      final data = ApiProviderModel.fromJson(result['data']);
+      final result = await _apiHelper.get(url: ApiConstants.addToApiUrlPath("profile"));
+      final data = ApiProviderModel.fromJson(result['data']['user']);
       return Right(data.map);
     });
   }
@@ -27,8 +27,8 @@ class ProviderMoreRepositoryImp implements ProviderMoreRepository {
   @override
   DomainServiceType<ProviderEntity> updateUserData(UpdateProviderProfileParams params) async {
     return await failureCollect<ProviderEntity>(() async {
-      final result = await _apiHelper.post(url: ApiConstants.addToApiUrlPath("auth/update-profile"), body: params.toMap);
-      final ProviderEntity data = ApiProviderModel.fromJson(List.from(result['data']).firstOrNull).map;
+      final result = await _apiHelper.post(url: ApiConstants.addToApiUrlPath("profile"), body: params.toMap);
+      final ProviderEntity data = ApiProviderModel.fromJson(result['data']['user']).map;
       await _secureStorage.setCachedUser(data.mapToCacheEntity);
       return Right(data);
     });

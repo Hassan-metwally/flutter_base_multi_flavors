@@ -26,7 +26,7 @@ class UpdateProviderProfileParams extends Equatable {
 
   Map<String, dynamic> get toMap {
     final MultipartFile? file = image?.path.toMultipartFile;
-    return {if (file != null) 'avatar': file, 'name': name};
+    return {if (file != null) 'avatar': file, 'name': name, "_method": "put"};
   }
 
   @override
