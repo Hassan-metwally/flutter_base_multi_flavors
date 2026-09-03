@@ -1,5 +1,4 @@
 import '../../../../../../core/core.dart';
-
 import '../entities/ad_entity.dart';
 
 abstract class AdsRepository {

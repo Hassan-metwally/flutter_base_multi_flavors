@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '/src/ads/presentation/ads/ads_cubit.dart';
 
+import '/src/ads/presentation/ads/ads_cubit.dart';
 import '../../../../core/di/di.dart';
 import 'widgets/ads_slider_widget.dart';
 
