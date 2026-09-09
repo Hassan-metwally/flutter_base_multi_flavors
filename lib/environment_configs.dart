@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'core/di/di.dart';
-import 'core/utils/pusher/pusher_handler.dart';
 import 'src/notifications/helpers/firebase/firebase_helper.dart';
 
 enum AppEnvironmentEnum {
@@ -52,9 +51,6 @@ Future<void> initializeAppConfig(AppEnvironmentEnum env) async {
 
   // Initialize Firebase services.
   await FirebaseHelper.init(env);
-
-  // Initialize the Pusher.
-  await PusherHandler.instance.initialize();
 
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
 

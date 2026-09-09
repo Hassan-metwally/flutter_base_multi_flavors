@@ -53,10 +53,14 @@ class _ClientMainPageState extends State<ClientMainPage> with ClientMainPageObse
 
   @override
   void initState() {
+    super.initState();
     FirebaseHelper.setUpNotificationListener();
     initObserver(onTabChanged: _onCurrentTapChanged);
     _addUnAuthenticatedListener();
-    super.initState();
+    // if (!GuestCheckerWidget.isGuest(context)) {
+    //   PusherHandler.instance.initialize();
+    // }
+    
     // _getUnReadNotificationsCount();
     // WidgetsBinding.instance.addPostFrameCallback((_) {
     //   DeepLinksUtils.intit();
