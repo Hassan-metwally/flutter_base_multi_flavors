@@ -1,0 +1,17 @@
+flutter_native_splash:
+  background_image: "assets/native_splash/native_bg_with_dot.png"
+  background_image_dark: "assets/native_splash/native_bg_with_dot.png"
+  image: "assets/native_splash/native_bg_with_dot.png"
+  image_dark: "assets/native_splash/native_bg_with_dot.png"
+  android_12:
+    color: "#606060"
+    color_dark: "#606060"
+    image: "assets/launcher_icon/app_launcher_icon.png"
+    image_dark: "assets/launcher_icon/app_launcher_icon.png"
+  fullscreen: true
+  android: true
+  ios: true
+  web: false
+  
+## Run Command :
+#  dart run flutter_native_splash:create --flavor client
